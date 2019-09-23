@@ -17,6 +17,7 @@ function App() {
           </h1>
         </header>
         <Route exact path="/" component={Login} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </div>
     </Router>
   );
