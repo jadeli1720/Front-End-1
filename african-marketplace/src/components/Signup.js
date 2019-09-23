@@ -9,8 +9,8 @@ class Signup extends React.Component {
     credentials: {
       username: '',
       password: '',
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       email: ''
     }
   };
@@ -65,8 +65,8 @@ class Signup extends React.Component {
         <label>First Name</label>
           <input
             type="text"
-            name="firstName"
-            value={this.state.credentials.firstName}
+            name="first_name"
+            value={this.state.credentials.first_name}
             onChange={this.handleChange}
           />
         </Form.Field>
@@ -74,8 +74,8 @@ class Signup extends React.Component {
         <label>Last Name</label>
           <input
             type="text"
-            name="lastName"
-            value={this.state.credentials.lastName}
+            name="last_name"
+            value={this.state.credentials.last_name}
             onChange={this.handleChange}
           />
         </Form.Field>
