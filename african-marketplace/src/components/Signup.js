@@ -3,12 +3,15 @@ import axiosWithAuth from "../utilites/axiosWithAuth";
 
 import { Container, Header, Button, Form  } from 'semantic-ui-react'
 
-class Login extends React.Component {
+class Signup extends React.Component {
   
   state = {
     credentials: {
       username: '',
-      password: ''
+      password: '',
+      firstName: '',
+      lastName: '',
+      email: ''
     }
   };
 
@@ -24,9 +27,9 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('/login', this.state.credentials)
+      .post('/signup', this.state.credentials)
       .then(res => {
-        console.log("Successful login");
+        console.log("Successful signup");
         localStorage.setItem('token', res.data.payload);
         this.props.history.push('/dashboard');
       })
@@ -38,7 +41,7 @@ class Login extends React.Component {
   return (
     <Container text>
       <Header as='h2'>Welcome to the African Marketplace App!</Header>
-      <Header as='h3'>Fill this from for access</Header>
+      <Header as='h3'>Fill this from for new account</Header>
       <Form onSubmit={this.login}>
         <Form.Field>
         <label>Login</label>
@@ -58,11 +61,38 @@ class Login extends React.Component {
             onChange={this.handleChange}
           />
         </Form.Field>
-          <Button type='submit'>Log in</Button>
+        <Form.Field>
+        <label>First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value={this.state.credentials.firstName}
+            onChange={this.handleChange}
+          />
+        </Form.Field>
+        <Form.Field>
+        <label>Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={this.state.credentials.lastName}
+            onChange={this.handleChange}
+          />
+        </Form.Field>
+        <Form.Field>
+        <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={this.state.credentials.email}
+            onChange={this.handleChange}
+          />
+        </Form.Field>
+          <Button type='submit'>Sign Up</Button>
         </Form>
     </Container>
   );
   }
 };
 
-export default Login;
+export default Signup;
