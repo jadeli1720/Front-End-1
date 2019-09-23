@@ -1,19 +1,24 @@
 import React from 'react';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard';
+import PrivateRoute from './components/PrivateRoute';
+import Login from './components/Login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          African Marketplace App
-        </h1>
-      </header>
-      <Dashboard />
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>
+            African Marketplace App
+          </h1>
+        </header>
+        <Route exact path="/" component={Login} />
+      </div>
+    </Router>
   );
 }
 
