@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "name": "african-marketplace",
+    "builds": [
+        {
+            "src": "african-marketplace/package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "build"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "african-marketplace/$1"
+        }
+    ]
+}
