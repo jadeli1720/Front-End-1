@@ -66,3 +66,18 @@ p, a {
 .Colors:nth-child(5) {
   background-color: #6F721A;
 }
+
+.ui .form {
+  width: 75% !important;
+  margin: 5% 12.5% !important;
+}
+#root > div > div > h2 {
+  margin-top: 5% !important;
+}
+.ui.text.container {
+  background-color: rgb(232, 241, 243) !important;
+  padding: 0.5% 0;
+  margin-top: 3% !important;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+}
