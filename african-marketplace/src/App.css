@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+p, a {
+  font-family: 'Muli', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -8,7 +20,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +29,11 @@
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.Dashboard-block {
+  background-color: rgb(228, 241, 245);
+  width: 75%;
+  margin: 2% 12.5%;
+  padding: 3% 0;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
 }
