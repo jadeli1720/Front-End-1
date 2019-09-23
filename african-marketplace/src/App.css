@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+p, a {
+  font-family: 'Muli', sans-serif !important;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Dashboard-block {
+  background-color: rgb(228, 241, 245);
+  width: 75%;
+  margin: 2% 12.5%;
+  padding: 3% 0;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+}
+
+.ExColors {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 1% 20%;
+}
+
+.Colors {
+  width: 15%;
+  padding: 3%;
+  border-radius: 10px;
+}
+
+.Colors:nth-child(1) {
+  background-color: #D83122;
+}
+.Colors:nth-child(2) {
+  background-color: #F26615;
+}
+.Colors:nth-child(3) {
+  background-color: #F29421;
+}
+.Colors:nth-child(4) {
+  background-color: #F2A921;
+}
+.Colors:nth-child(5) {
+  background-color: #6F721A;
+}
