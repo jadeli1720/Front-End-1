@@ -2,16 +2,19 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="header-container">
-      <div className="left-side">
-        <h2>africanMarketplace</h2>
+    <nav className="header-container">
+      <div className="top-nav">
+        <h2>africanMarkeplace</h2>
       </div>
 
-      <div className="right-side">
-          <p>Sell</p>
-          <p>Log Out</p>
+      <div className="bottom-nav">
+          <ul>
+              <li>PRODUCTS</li>
+              <li>SELL</li>
+              <li>MY ADS</li>
+          </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 

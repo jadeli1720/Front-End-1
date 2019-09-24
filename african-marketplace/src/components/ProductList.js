@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { data } from "./DummyData";
 import Picky from "react-picky";
 // import { render } from "react-dom";
-import "react-picky/dist/picky.css";
+// import "react-picky/dist/picky.css";
 
 const categories = [];
 const allCategories = [];
@@ -34,7 +34,7 @@ function ProductList() {
               valueKey="id"
               labelKey="name"
               multiple={true}
-              includeSelectAll={true}
+              includeSelectAll={false}
               includeFilter={true}
               dropdownHeight={400}
             />
@@ -47,7 +47,7 @@ function ProductList() {
               <div key={index} className="product">
                 <img src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
-                <p>{product.category}</p>
+                <p>${product.price}</p>
               </div>
             ))
           : data
