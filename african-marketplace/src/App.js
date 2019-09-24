@@ -7,19 +7,24 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import ProductList from './components/ProductList';
+import Header from './components/Header';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
+        <Header/>
+        {/* <header className="App-header">
           <h1>
             African Marketplace App
           </h1>
-        </header>
-        <Route exact path="/" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        </header> */}
+
+        {/* <Route exact path="/" component={Login} />
+        <Route path="/signup" component={Signup} /> */}
+        {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
+        <ProductList/>
       </div>
     </Router>
   );

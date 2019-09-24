@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-
-
 h1, h2, h3, h4, h5 {
   font-family: 'Raleway', sans-serif !important;
 }
@@ -54,15 +52,19 @@ p, a {
 .Colors:nth-child(1) {
   background-color: #D83122;
 }
+
 .Colors:nth-child(2) {
   background-color: #F26615;
 }
+
 .Colors:nth-child(3) {
   background-color: #F29421;
 }
+
 .Colors:nth-child(4) {
   background-color: #F2A921;
 }
+
 .Colors:nth-child(5) {
   background-color: #6F721A;
 }
@@ -71,13 +73,101 @@ p, a {
   width: 75% !important;
   margin: 5% 12.5% !important;
 }
-#root > div > div > h2 {
+
+#root>div>div>h2 {
   margin-top: 5% !important;
 }
+
 .ui.text.container {
   background-color: rgb(232, 241, 243) !important;
   padding: 0.5% 0;
   margin-top: 3% !important;
   border: 1px solid lightgrey;
   border-radius: 15px;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.item-browser {
+  width: 30%;
+  justify-self: flex-end;
+  height: 100vh;
+  font-size: 20px;
+}
+
+.listed-items {
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.picky__dropdown {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  box-shadow: 5px;
+  /* justify-content: space-around; */
+}
+
+input[type=checkbox] {
+  zoom: 2.4;
+  margin: 3px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 350px;
+  margin: 25px 5px;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px 1px grey, -5px -5px 30px 7px white;
+}
+
+.product>img {
+  width: 100%;
+}
+
+
+/*Header*/
+.header-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+  /* height: 125px; */
+  padding: 5px;
+  background-color: #068460;
+  position: sticky;
+}
+
+.top-nav, .bottom-nav {
+  width: 100%;
+  margin-top: 1%;
+  color: white;
+  padding: 5px;
+}
+
+
+.bottom-nav {
+ align-self: center;
+}
+
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-size: 18px;
+  color: white;
+  text-align: right;
+  align-content: center;
+  font-family: 'Raleway';
+  font-weight: 1000;
+  margin-top: 10px;
 }
