@@ -5,7 +5,7 @@ export const data = [
     category: "food",
     subcategory: "grain",
     image:
-      "https://f1af951e8abcbc4c70b9-9997fa854afcb64e87870c0f4e867f1d.ssl.cf3.rackcdn.com/1000005236664-1000005236663_01-710.jpg",
+      "http://desifoodkart.com/wp-content/uploads/2019/02/Dosa-Rice-Raw-Rice.jpg",
     price: "12",
     location: "X"
   },
@@ -26,7 +26,7 @@ export const data = [
     category: "food",
     subcategory: "grain",
     image:
-      "https://f1af951e8abcbc4c70b9-9997fa854afcb64e87870c0f4e867f1d.ssl.cf3.rackcdn.com/1000005236664-1000005236663_01-710.jpg",
+      "http://desifoodkart.com/wp-content/uploads/2019/02/Dosa-Rice-Raw-Rice.jpg",
     price: "12",
     location: "X"
   },
@@ -47,7 +47,7 @@ export const data = [
     category: "food",
     subcategory: "meat",
     image:
-      "https://f1af951e8abcbc4c70b9-9997fa854afcb64e87870c0f4e867f1d.ssl.cf3.rackcdn.com/1000005236664-1000005236663_01-710.jpg",
+      "https://www.trzcacak.rs/myfile/detail/31-319070_white-chicken-png-image-background-chicken-with-white.png",
     price: "12",
     location: "Z"
   },

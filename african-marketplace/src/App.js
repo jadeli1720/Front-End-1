@@ -18,8 +18,8 @@ function App() {
             African Marketplace App
           </h1>
         </header>
-        <Route exact path="/" component={Login} />
-        <Route path="/signup" component={Signup} />
+        {/* <Route exact path="/" component={Login} />
+        <Route path="/signup" component={Signup} /> */}
         {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
         <ProductList/>
       </div>

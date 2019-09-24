@@ -21,10 +21,11 @@ function ProductList() {
   const selectMultipleOption = value => setArrayValue(value);
 
   return (
-    <>
-      <div className="container">
+    <div className="products-container">
+      <div className="item-browser">
         <div className="row">
           <div className="col">
+              <h2>Browse Categories</h2>
             <Picky
               value={arrayValue}
               options={categories}
@@ -35,29 +36,33 @@ function ProductList() {
               multiple={true}
               includeSelectAll={true}
               includeFilter={true}
-              dropdownHeight={50}
+              dropdownHeight={400}
             />
           </div>
         </div>
       </div>
-      <div>
-        {console.log(arrayValue)}
+      <div class="listed-items">
         {arrayValue.length === 0
           ? data.map((product, index) => (
-              <div key={index}> {product.name} </div>
+              <div key={index} className="product">
+                <img src={product.image} alt={product.name} />
+                <h3>{product.name}</h3>
+                <p>{product.category}</p>
+              </div>
             ))
           : data
               .filter(product =>
                 arrayValue.map(item => item.name).includes(product.subcategory)
               )
-              .map((x, index) => (
-                <>
-                  <div key={index}> {x.name} </div>
-                </>
+              .map((filteredProduct, index) => (
+                <div key={index} className="product">
+                  <img src={filteredProduct.image} alt={filteredProduct.name} />
+                  <h3>{filteredProduct.name}</h3>
+                  <p>{filteredProduct.category}</p>
+                </div>
               ))}
-        ;
       </div>
-    </>
+    </div>
   );
 }
 
