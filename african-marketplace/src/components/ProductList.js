@@ -1,27 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { data } from "./DummyData";
 import Picky from "react-picky";
+import axiosWithAuth from "../utilites/axiosWithAuth";
 // import { render } from "react-dom";
 // import "react-picky/dist/picky.css";
 
 function ProductList() {
+  //STATES AND EVENT HANDLERS
+  const [pricingData, setPricingData] = useState([]); //This holds the state for the pricing data received from the endpoint
+  const [arrayValue, setArrayValue] = useState([]); //This holds the values of the checked items for filter
+  const selectMultipleOption = value => setArrayValue(value); //This adds the checked item to the array of checked values
 
-  //Getting list of sub-categories from data to be rendered by Picky component as checkboxes  
+useEffect(() => {
+    axiosWithAuth()
+        .get("https://africanmarket.herokuapp.com/api/pricing")
+        .then(response => {
+        console.log(response.data)
+        setPricingData(response.data)
+        })
+        .catch(error => {
+          console.log(error);
+        }); }, []);
+
+
+  //Getting list of sub-categories from data to be rendered by Picky component as checkboxes
   const categories = [];
   const allCategories = [];
-  for (let i = 0; i < data.length; i++) {
-    allCategories.push(Object.values(data[i])[3]);
+  if (pricingData) {
+    for (let i = 0; i < pricingData.length; i++) {
+        allCategories.push(Object.values(pricingData[i])[2]);
+      }
   }
+  
   const uniqueSet = [...new Set(allCategories)];
   for (let k = 0; k < uniqueSet.length; k++) {
     categories.push({ id: k, name: `${uniqueSet[k]}` });
   }
-
-
-  //States and event handlers
-  const []
-  const [arrayValue, setArrayValue] = useState([]);
-  const selectMultipleOption = value => setArrayValue(value);
 
   return (
     <div className="products-container">
@@ -44,24 +58,25 @@ function ProductList() {
           </div>
         </div>
       </div>
-      <div class="listed-items">
+      <div className="listed-items">
         {arrayValue.length === 0
-          ? data.map((product, index) => (
+          ? pricingData.map((product, index) => (
               <div key={index} className="product">
-                <img src={product.image} alt={product.name} />
-                <h3>{product.name}</h3>
+                <img src={product.image} alt={product.productName} />
+                <h3>{product.productName}</h3>
+                <p>{product.subcategory}</p>
                 <p>${product.price}</p>
               </div>
             ))
-          : data
+          : pricingData
               .filter(product =>
-                arrayValue.map(item => item.name).includes(product.subcategory)
+                arrayValue.map(item => item.name).includes(product.subCategory)
               )
               .map((filteredProduct, index) => (
                 <div key={index} className="product">
-                  <img src={filteredProduct.image} alt={filteredProduct.name} />
-                  <h3>{filteredProduct.name}</h3>
-                  <p>{filteredProduct.category}</p>
+                  <img src={filteredProduct.image} alt={filteredProduct.productName} />
+                  <h3>{filteredProduct.productName}</h3>
+                  <p>{filteredProduct.subcategory}</p>
                 </div>
               ))}
       </div>
