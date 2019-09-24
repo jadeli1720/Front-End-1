@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import ProductList from './components/ProductList';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         </header>
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
+        <ProductList/>
       </div>
     </Router>
   );

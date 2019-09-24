@@ -1,68 +1,63 @@
 import React, { useState } from "react";
 import { data } from "./DummyData";
+import Picky from "react-picky";
+// import { render } from "react-dom";
+import "react-picky/dist/picky.css";
+
+const categories = [];
+const allCategories = [];
+
+for (let i = 0; i < data.length; i++) {
+  allCategories.push(Object.values(data[i])[3]);
+}
+
+const uniqueSet = [...new Set(allCategories)];
+for (let k = 0; k < uniqueSet.length; k++) {
+  categories.push({ id: k, name: `${uniqueSet[k]}` });
+}
 
 function ProductList() {
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  //const [checked, setChecked] = useState(false);
-  const [value, setValue] = useState();
-
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckBox = e => {
-    setIsChecked(e.target.check);
-    if (e.target.checked) {
-      e.preventDefault();
-      setValue(e.target.value);
-      let filteredItem = data.filter(product => product.category === "food");
-      let updatedArray = [...filteredProducts, ...filteredItem];
-      setFilteredProducts(updatedArray);
-      setValue();
-      console.log(filteredProducts);
-    } else {
-      e.preventDefault();
-      let unfilteredItems = data.filter(product => product.category === "food");
-
-      for (let i = 0; i < unfilteredItems.length; i++) {
-        let index = filteredProducts.indexOf(unfilteredItems[i]);
-        if (index > -1) {
-          filteredProducts.splice(index, 1);
-        }
-        setFilteredProducts(filteredProducts);
-      }
-      console.log(filteredProducts);
-    }
-  };
+  const [arrayValue, setArrayValue] = useState([]);
+  const selectMultipleOption = value => setArrayValue(value);
 
   return (
-    <div className="product-listing-container">
-      {data.map((product, index) => {
-        return (
-          <div key={index} index={index} className="product-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-image"
+    <>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <Picky
+              value={arrayValue}
+              options={categories}
+              onChange={selectMultipleOption}
+              open={true}
+              valueKey="id"
+              labelKey="name"
+              multiple={true}
+              includeSelectAll={true}
+              includeFilter={true}
+              dropdownHeight={50}
             />
-            <h3 class="product-title">{product.name}</h3>
-            <h4 className="product-price">
-              Current Price: {`$${product.price}`}
-            </h4>
-            >
           </div>
-        );
-      })}
-      <form>
-        <label htmlFor="nameInput">Food</label>
-        <input
-          value="Food"
-          id="nameInput"
-          type="checkbox"
-          onChange={handleCheckBox}
-          checked={isChecked}
-        />
-      </form>
-    </div>
+        </div>
+      </div>
+      <div>
+        {console.log(arrayValue)}
+        {arrayValue.length === 0
+          ? data.map((product, index) => (
+              <div key={index}> {product.name} </div>
+            ))
+          : data
+              .filter(product =>
+                arrayValue.map(item => item.name).includes(product.subcategory)
+              )
+              .map((x, index) => (
+                <>
+                  <div key={index}> {x.name} </div>
+                </>
+              ))}
+        ;
+      </div>
+    </>
   );
 }
 
