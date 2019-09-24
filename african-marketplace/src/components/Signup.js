@@ -29,9 +29,8 @@ class Signup extends React.Component {
     axiosWithAuth()
       .post('/signup', this.state.credentials)
       .then(res => {
-        console.log("Successful signup");
-        localStorage.setItem('token', res.data.payload);
-        this.props.history.push('/dashboard');
+        console.log("Successful signup", res);
+        this.props.history.push('/');
       })
       .catch(err => console.log('Oh-oh, something wrong', err));
   };
