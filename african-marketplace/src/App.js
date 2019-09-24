@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
-import Login from './components/Login';
+import LoginForm from './components/Login';
 import Signup from './components/Signup';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             African Marketplace App
           </h1>
         </header>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" render={(props) => <LoginForm {...props} />} />
         <Route path="/signup" component={Signup} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </div>
