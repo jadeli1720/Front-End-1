@@ -4,19 +4,22 @@ import Picky from "react-picky";
 // import { render } from "react-dom";
 // import "react-picky/dist/picky.css";
 
-const categories = [];
-const allCategories = [];
-
-for (let i = 0; i < data.length; i++) {
-  allCategories.push(Object.values(data[i])[3]);
-}
-
-const uniqueSet = [...new Set(allCategories)];
-for (let k = 0; k < uniqueSet.length; k++) {
-  categories.push({ id: k, name: `${uniqueSet[k]}` });
-}
-
 function ProductList() {
+
+  //Getting list of sub-categories from data to be rendered by Picky component as checkboxes  
+  const categories = [];
+  const allCategories = [];
+  for (let i = 0; i < data.length; i++) {
+    allCategories.push(Object.values(data[i])[3]);
+  }
+  const uniqueSet = [...new Set(allCategories)];
+  for (let k = 0; k < uniqueSet.length; k++) {
+    categories.push({ id: k, name: `${uniqueSet[k]}` });
+  }
+
+
+  //States and event handlers
+  const []
   const [arrayValue, setArrayValue] = useState([]);
   const selectMultipleOption = value => setArrayValue(value);
 
@@ -25,7 +28,7 @@ function ProductList() {
       <div className="item-browser">
         <div className="row">
           <div className="col">
-              <h2>Browse Categories</h2>
+            <h2>Browse Categories</h2>
             <Picky
               value={arrayValue}
               options={categories}

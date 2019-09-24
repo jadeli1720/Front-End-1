@@ -1,7 +1,8 @@
 import React from "react";
 import axiosWithAuth from "../utilites/axiosWithAuth";
 
-import { Container, Header, Button, Form  } from 'semantic-ui-react'
+import { Container, Header, Button, Form  } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 
 class Signup extends React.Component {
   
@@ -9,8 +10,8 @@ class Signup extends React.Component {
     credentials: {
       username: '',
       password: '',
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       email: ''
     }
   };
@@ -29,9 +30,8 @@ class Signup extends React.Component {
     axiosWithAuth()
       .post('/signup', this.state.credentials)
       .then(res => {
-        console.log("Successful signup");
-        localStorage.setItem('token', res.data.payload);
-        this.props.history.push('/dashboard');
+        console.log("Successful signup", res);
+        this.props.history.push('/');
       })
       .catch(err => console.log('Oh-oh, something wrong', err));
   };
@@ -65,8 +65,8 @@ class Signup extends React.Component {
         <label>First Name</label>
           <input
             type="text"
-            name="firstName"
-            value={this.state.credentials.firstName}
+            name="first_name"
+            value={this.state.credentials.first_name}
             onChange={this.handleChange}
           />
         </Form.Field>
@@ -74,8 +74,8 @@ class Signup extends React.Component {
         <label>Last Name</label>
           <input
             type="text"
-            name="lastName"
-            value={this.state.credentials.lastName}
+            name="last_name"
+            value={this.state.credentials.last_name}
             onChange={this.handleChange}
           />
         </Form.Field>
@@ -88,7 +88,8 @@ class Signup extends React.Component {
             onChange={this.handleChange}
           />
         </Form.Field>
-          <Button type='submit'>Sign Up</Button>
+          <Button primary type='submit'>Sign Up</Button>
+          <Button secondary><Link to="/">Cancel</Link></Button>
         </Form>
     </Container>
   );

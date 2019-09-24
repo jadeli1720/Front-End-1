@@ -2,6 +2,7 @@ import React from "react";
 import axiosWithAuth from "../utilites/axiosWithAuth";
 
 import { Container, Header, Button, Form  } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   
@@ -26,8 +27,8 @@ class Login extends React.Component {
     axiosWithAuth()
       .post('/login', this.state.credentials)
       .then(res => {
-        console.log("Successful login");
-        localStorage.setItem('token', res.data.payload);
+        console.log("Successful login", res);
+        localStorage.setItem('token', res.data.token);
         this.props.history.push('/dashboard');
       })
       .catch(err => console.log('Oh-oh, something wrong', err));
@@ -58,7 +59,8 @@ class Login extends React.Component {
             onChange={this.handleChange}
           />
         </Form.Field>
-          <Button type='submit'>Log in</Button>
+          <Button primary type='submit'>Log In</Button>
+          <Button secondary><Link to="/signup">Sign Up</Link></Button>
         </Form>
     </Container>
   );
