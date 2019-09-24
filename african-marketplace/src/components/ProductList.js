@@ -62,10 +62,10 @@ useEffect(() => {
         {arrayValue.length === 0
           ? pricingData.map((product, index) => (
               <div key={index} className="product">
-                <img src={product.image} alt={product.productName} />
+                {/* <img src={product.image} alt={product.productName} /> */}
                 <h3>{product.productName}</h3>
-                <p>{product.subcategory}</p>
                 <p>${product.price}</p>
+                <p>{product.subCategory}</p>
               </div>
             ))
           : pricingData
@@ -74,9 +74,10 @@ useEffect(() => {
               )
               .map((filteredProduct, index) => (
                 <div key={index} className="product">
-                  <img src={filteredProduct.image} alt={filteredProduct.productName} />
+                  {/* <img src={filteredProduct.image} alt={filteredProduct.productName} /> */}
                   <h3>{filteredProduct.productName}</h3>
-                  <p>{filteredProduct.subcategory}</p>
+                  <p>${filteredProduct.price}</p>
+                  <p>{filteredProduct.subCategory}</p>
                 </div>
               ))}
       </div>
