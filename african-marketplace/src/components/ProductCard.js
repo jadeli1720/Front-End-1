@@ -10,6 +10,7 @@ const ProductCard = (props) =>  {
           .delete(`/products/${props.id}`)
           .then(res => {
               console.log(`Product with id ${props.id} deleted`);
+              props.setUpdate(res)
           })
           .catch(err => console.log(err));
     };
@@ -20,7 +21,7 @@ const ProductCard = (props) =>  {
     <Card>
         <Card.Content>
             <Card.Header>{props.productName}</Card.Header>
-            <Card.Meta>Price: {props.price}</Card.Meta>
+            <Card.Meta>Price: {props.price}$</Card.Meta>
             <Card.Description>Descriprion: {props.descriprion}</Card.Description>
         </Card.Content>
         <Button onClick={deleteProduct} >Delete</Button>
