@@ -149,6 +149,10 @@ ul {
   margin-top: 10px;
 }
 
+li a, li a:hover {
+  color: white;
+}
+
 #root > div > nav > div {
   margin: 0;
 }
