@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { data } from "./DummyData";
 import Picky from "react-picky";
 import axiosWithAuth from "../utilites/axiosWithAuth";
 // import { render } from "react-dom";
