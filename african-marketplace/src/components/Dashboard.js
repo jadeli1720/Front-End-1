@@ -1,9 +1,7 @@
 import React from "react";
 
 const Dashboard = () => {
-  
-  
-  
+
     return (
       <div className="Dashboard-block">
           <h2>App ready to work</h2>
