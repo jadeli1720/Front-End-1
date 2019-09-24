@@ -1,7 +1,8 @@
 import React from "react";
 import axiosWithAuth from "../utilites/axiosWithAuth";
 
-import { Container, Header, Button, Form  } from 'semantic-ui-react'
+import { Container, Header, Button, Form  } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 
 class Signup extends React.Component {
   
@@ -87,7 +88,8 @@ class Signup extends React.Component {
             onChange={this.handleChange}
           />
         </Form.Field>
-          <Button type='submit'>Sign Up</Button>
+          <Button primary type='submit'>Sign Up</Button>
+          <Button secondary><Link to="/">Cancel</Link></Button>
         </Form>
     </Container>
   );

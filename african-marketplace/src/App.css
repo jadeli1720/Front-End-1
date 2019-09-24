@@ -17,7 +17,7 @@ p, a {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #068460;
   min-height: 15vh;
   display: flex;
   flex-direction: column;
@@ -43,30 +43,8 @@ p, a {
   margin: 1% 20%;
 }
 
-.Colors {
-  width: 15%;
-  padding: 3%;
-  border-radius: 10px;
-}
-
-.Colors:nth-child(1) {
-  background-color: #D83122;
-}
-
-.Colors:nth-child(2) {
-  background-color: #F26615;
-}
-
-.Colors:nth-child(3) {
-  background-color: #F29421;
-}
-
-.Colors:nth-child(4) {
-  background-color: #F2A921;
-}
-
-.Colors:nth-child(5) {
-  background-color: #6F721A;
+#root > div > div > form > button.ui.secondary.button > a {
+  color: white;
 }
 
 .ui .form {
@@ -140,9 +118,8 @@ input[type=checkbox] {
   flex-direction: column;
   width: 100%;
   justify-content: space-around;
-  /* height: 125px; */
-  padding: 5px;
-  background-color: #068460;
+  /* padding: 5px; */
+  background-color: #13ad82;
   position: sticky;
 }
 
@@ -170,4 +147,17 @@ ul {
   font-family: 'Raleway';
   font-weight: 1000;
   margin-top: 10px;
+}
+
+li a, li a:hover {
+  color: white;
+}
+
+#root > div > nav > div {
+  margin: 0;
+}
+
+#root > div > nav > div > ul {
+  padding: 0;
+  margin: 0.5% 0;
 }
