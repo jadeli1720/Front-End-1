@@ -41,7 +41,7 @@ function ProductList() {
           </div>
         </div>
       </div>
-      <div class="listed-items">
+      <div className="listed-items">
         {arrayValue.length === 0
           ? data.map((product, index) => (
               <div key={index} className="product">
