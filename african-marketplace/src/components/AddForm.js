@@ -1,5 +1,6 @@
 import React from "react";
 import axiosWithAuth from "../utilites/axiosWithAuth";
+import { Link } from 'react-router-dom'
 
 import { Container, Header, Button, Form  } from 'semantic-ui-react'
 
@@ -40,7 +41,6 @@ class AddForm extends React.Component {
       .post(`/products/add/`, this.state.productData)
       .then(res => {
         console.log("Product added", res);
-        // this.props.history.push('/sell');
       })
       .catch(err => console.log('Oh-oh, something wrong', err));
   };
@@ -79,6 +79,7 @@ class AddForm extends React.Component {
           />
         </Form.Field>
           <Button primary type='submit'>Add product</Button>
+          <Button secondary><Link to='/sell'>Back to selling</Link></Button>
         </Form>
     </Container>
   );
