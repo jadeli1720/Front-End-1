@@ -136,6 +136,13 @@ function Signup({ errors, touched }) {
   return (
     <Form>
       <label>
+        Email:
+      <Field type="email" name="email" placeholder="Email" />
+        {touched.email && errors.email && (
+          <p className="error">{errors.email}</p>
+        )}
+      </label>
+      <label>
         Username:
       <Field type="text" name="username" placeholder="Username" />
         {touched.username && errors.username && <p className="error">{errors.username}</p>}
@@ -183,20 +190,15 @@ const SignupForm = withFormik({
   handleSubmit(values, { props, setErrors }) {
     if (!values.username) {
       setErrors({ username: "Username is required." });
-    }
-    if (!values.username) {
+    } else if (!values.username) {
       setErrors({ password: "Password is required" });
-    }
-    if (values.password && values.password.length < 6) {
+    } else if (values.password && values.password.length < 6) {
       setErrors({ password: "Password must be at least six characters" })
-    }
-    if (this.validationSchema.validateAt(values.email)) {
-      setErrors({ email: "Please enter a valid email" })
-    }
-    if (!values.first_name) {
+      //} else if (this.validationSchema.validateAt({ email:  })) {
+      // setErrors({ email: "Please enter a valid email" });
+    } else if (!values.first_name) {
       setErrors({ first_name: "First name is required" });
-    }
-    if (!values.last_name) {
+    } else if (!values.last_name) {
       setErrors({ last_name: "Last name is required" })
     } else {
       console.log("In else clause");
@@ -206,7 +208,7 @@ const SignupForm = withFormik({
         .then(res => {
           console.log("Successful sign up");
           localStorage.setItem('token', res.data.payload)
-          //}).then(() => {
+        }).then(() => {
           console.log(props);
           props.history.push('/dashboard');
         }).catch(err => console.log('Oh-oh, something wrong', err));

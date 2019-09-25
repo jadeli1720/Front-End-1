@@ -40,7 +40,7 @@ const LoginForm = withFormik({
   }),
   handleSubmit(values, { props, setErrors }) {
     if (!values.username) {
-      setErrors({ username: "Username is required." });
+      setErrors({ username: "Username is required" });
     } else if (!values.username) {
       setErrors({ password: "Password is required" });
     }
