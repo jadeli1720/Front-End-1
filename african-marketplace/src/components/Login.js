@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { Container, Header, Button } from 'semantic-ui-react'
 import { Form, Field, Formik, withFormik, FormikProps } from "formik";
 
+
 //class Login extends React.Component {
 function Login({ errors, touched }) {
 
@@ -23,7 +24,6 @@ function Login({ errors, touched }) {
       </label>
       <button type="submit">Login</button>
     </Form >
-
   );
 }
 
