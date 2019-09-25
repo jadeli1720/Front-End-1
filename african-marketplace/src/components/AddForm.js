@@ -1,16 +1,17 @@
 import React from "react";
 import axiosWithAuth from "../utilites/axiosWithAuth";
-import axios from 'axios'
 
 import { Container, Header, Button, Form  } from 'semantic-ui-react'
 
 class AddForm extends React.Component {
   
+
   state = {
     productData: {
       productName: '',
       price: '',
-      description: ''
+      description: '',
+      user_id: ''
     }
   };
 
@@ -23,10 +24,20 @@ class AddForm extends React.Component {
     });
   };
   
+  componentDidMount() {
+    const id = localStorage.getItem('userID');
+    this.setState({
+        productData: {
+          ...this.state.productData,
+          user_id: id
+        }
+      });
+  }
+
   login = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('/products/add/8', this.state.productData)
+      .post(`/products/add/`, this.state.productData)
       .then(res => {
         console.log("Product added", res);
         // this.props.history.push('/sell');
