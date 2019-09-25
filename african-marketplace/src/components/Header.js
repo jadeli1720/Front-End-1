@@ -13,7 +13,7 @@ function Header() {
           <ul>
               <li><Link to="/dashboard">PRODUCTS</Link></li>
               <li><Link to="/sell">SELL</Link></li>
-              <li>MY ADS</li>
+              <li><Link to="/myads">MY ADS</Link></li>
               <li onClick={logout}><Link to="/">LOG OUT</Link></li>
           </ul>
       </div>

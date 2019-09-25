@@ -8,6 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 import LoginForm from './components/Login';
 import Signup from './components/Signup';
 import Sell from './components/Sell';
+import AddProduct from './components/AddProduct';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" component={Signup} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/sell" component={Sell} />
+        <PrivateRoute path="/myads" component={AddProduct} />
       </div>
     </Router>
   );

@@ -7,7 +7,7 @@ const ProductCard = (props) =>  {
 
     const deleteProduct = () => {
         axiosWithAuth()
-          .delete(`/products/${props.id}`)
+          .delete(`/products/delete/${props.id}`)
           .then(res => {
               console.log(`Product with id ${props.id} deleted`);
               props.setUpdate(res)
