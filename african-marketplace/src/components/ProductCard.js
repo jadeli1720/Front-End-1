@@ -22,7 +22,7 @@ const ProductCard = (props) =>  {
         <Card.Content>
             <Card.Header>{props.productName}</Card.Header>
             <Card.Meta>Price: {props.price}$</Card.Meta>
-            <Card.Description>Descriprion: {props.descriprion}</Card.Description>
+            <Card.Description>Descriprion: {props.description}</Card.Description>
         </Card.Content>
         <Button onClick={deleteProduct} >Delete</Button>
     </Card>

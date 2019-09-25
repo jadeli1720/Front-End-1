@@ -8,6 +8,7 @@ const SellList = () => {
   
     const [productsList, setProductsList] = useState([]);
     const [update, setUpdate] = useState('');
+    const [position, setPosition] = useState('');
 
     useEffect(() => {
         getData();
@@ -29,7 +30,7 @@ const SellList = () => {
         <p>Selltest</p>
         <Card.Group centered>
                 {productsList.map(product => (
-                    <ProductCard id={product.id} key={product.id} productName={product.productName} price={product.price} descriprion={product.descriprion} setUpdate={setUpdate} />
+                    <ProductCard id={product.id} key={product.id} productName={product.productName} price={product.price} description={product.description} setUpdate={setUpdate} />
                 ))}
         </Card.Group>
       </div>
