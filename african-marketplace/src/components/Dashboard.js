@@ -4,9 +4,7 @@ import ProductList from "./ProductList";
 import Header from "./Header";
 
 const Dashboard = () => {
-  
-  
-  
+
     return (
       <>
         <Header/>
