@@ -175,3 +175,9 @@ li a, li a:hover {
 .option #text {
   color: red;
 }
+
+/* Sell page */
+
+.SellTop {
+  margin: 2% 0;
+}
