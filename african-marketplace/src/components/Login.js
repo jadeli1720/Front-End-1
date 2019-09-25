@@ -5,7 +5,7 @@ import { Container, Header, Button } from 'semantic-ui-react'
 import { Form, Field, Formik, withFormik, FormikProps } from "formik";
 
 //class Login extends React.Component {
-function Login({ errors, touched, history }) {
+function Login({ errors, touched }) {
 
   return (
     < Form >
@@ -38,7 +38,7 @@ const LoginForm = withFormik({
     username: Yup.string().required("Username is required"),
     password: Yup.string().min(6, "Password must be at least six characters").required("Password is required")
   }),
-  handleSubmit(values, { setErrors, props }) {
+  handleSubmit(values, { props, setErrors }) {
     if (!values.username) {
       setErrors({ username: "Username is required." });
     } else if (!values.username) {
@@ -52,10 +52,13 @@ const LoginForm = withFormik({
         .post('/login', values)
         .then(res => {
           console.log("Successful login");
-          localStorage.setItem('token', res.data.payload);
-          Login.history.push('/dashboard');
-        })
-        .catch(err => console.log('Oh-oh, something wrong', err));
+          localStorage.setItem('token', res.data.payload)
+        }).then(() => {
+          console.log(props);
+          props.history.push('/dashboard');
+        }
+        ).catch(err => console.log('Oh-oh, something wrong', err));
+
     }
   }
 })(Login);

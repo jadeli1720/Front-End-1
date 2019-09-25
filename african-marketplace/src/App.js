@@ -17,7 +17,8 @@ function App() {
             African Marketplace App
           </h1>
         </header>
-        <Route exact path="/" render={(props) => <LoginForm {...props} />} />
+        <Route exact path="/" component={LoginForm} />
+
         <Route path="/signup" component={Signup} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </div>
