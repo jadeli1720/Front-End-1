@@ -1,8 +1,8 @@
 import React from "react";
 import axiosWithAuth from "../utilites/axiosWithAuth";
+import axios from 'axios'
 
 import { Container, Header, Button, Form  } from 'semantic-ui-react'
-import { Link } from "react-router-dom";
 
 class AddForm extends React.Component {
   
@@ -26,16 +26,15 @@ class AddForm extends React.Component {
   login = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('/add', this.state.productData)
+      .post('/products/add/8', this.state.productData)
       .then(res => {
         console.log("Product added", res);
-        localStorage.setItem('token', res.data.token);
-        this.props.history.push('/sell');
+        // this.props.history.push('/sell');
       })
       .catch(err => console.log('Oh-oh, something wrong', err));
   };
-
   
+    
   render() {
   return (
     <Container text>

@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 function Header() {
 
   const logout = () => {
-    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('userID');
   }
 
   return (
