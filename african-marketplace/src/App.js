@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Sell from './components/Sell';
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
 
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/sell" component={Sell} />
       </div>
     </Router>
   );
