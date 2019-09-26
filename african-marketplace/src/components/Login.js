@@ -162,7 +162,7 @@ function LoginPageHeader(props) {
   return (
     <Container text>
       <Header as='h2'>Welcome to the African Marketplace App!</Header>
-      <Header as='h3'>Complete this form to create a new account</Header>
+      <Header as='h3'>Please Log In</Header>
       <Login {...props} />
     </Container>
   );

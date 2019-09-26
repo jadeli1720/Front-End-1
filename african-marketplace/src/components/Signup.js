@@ -137,12 +137,12 @@ const Signup = withFormik({
 })(SignupForm);
 
 
-function SignupPageHeader() {
+function SignupPageHeader(props) {
   return (
     <Container text>
       <Header as='h2'>Welcome to the African Marketplace App!</Header>
-      <Header as='h3'>Fill this from for new account</Header>
-      <Signup />
+      <Header as='h3'>Complete this form to create a new account.</Header>
+      <Signup {...props} />
     </Container>
   );
 }
@@ -150,4 +150,4 @@ function SignupPageHeader() {
 
 
 
-export default Signup;
+export default SignupPageHeader;
