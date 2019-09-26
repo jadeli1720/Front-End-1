@@ -10,7 +10,11 @@ const SellList = () => {
     const [update, setUpdate] = useState('');
     const [position, setPosition] = useState(0);
     
-    console.log(position)
+ 
+    useEffect(() => {
+        console.log(`Position was switched to: ${position}`);
+      }, [position]);
+
 
     const id = localStorage.getItem('userID');
 
@@ -48,11 +52,9 @@ const SellList = () => {
 
     const toLocal = () => {
         setPosition(0)
-        console.log(`Position was switched to Local`)
     };
     const toGlobal = () => {
         setPosition(1)
-        console.log(`Position was switched to Global`)
     };
   
     return (
