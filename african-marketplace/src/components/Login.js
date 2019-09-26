@@ -148,6 +148,7 @@ const Login = withFormik({
         .post('/login', values)
         .then(res => {
           console.log("Successful login", res);
+          localStorage.setItem('token', res.data.token);
           props.history.push('/dashboard');
         })
         .catch(err => console.log('Oh-oh, something wrong', err));
