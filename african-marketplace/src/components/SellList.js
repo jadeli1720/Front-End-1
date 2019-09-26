@@ -9,6 +9,7 @@ const SellList = () => {
     const [productsList, setProductsList] = useState([]);
     const [update, setUpdate] = useState('');
     const [position, setPosition] = useState(0);
+    
     console.log(position)
 
     const id = localStorage.getItem('userID');
@@ -38,7 +39,7 @@ const SellList = () => {
         };
 
     const getSomeProducts = (positions) => {
-        if (positions == 0) {
+        if (positions === 0) {
             return (getLocalData());
         } else {
             return (getData());
@@ -63,7 +64,14 @@ const SellList = () => {
         </div>
         <Card.Group centered>
                 {productsList.map(product => (
-                    <ProductCard id={product.id} key={product.id} productName={product.productName} price={product.price} description={product.description} setUpdate={setUpdate} />
+                    <ProductCard 
+                    id={product.id} 
+                    key={product.id} 
+                    productName={product.productName} 
+                    price={product.price} 
+                    description={product.description} 
+                    setUpdate={setUpdate} 
+                    position={position} />
                 ))}
         </Card.Group>
       </div>

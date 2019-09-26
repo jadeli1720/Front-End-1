@@ -15,6 +15,17 @@ const ProductCard = (props) =>  {
           .catch(err => console.log(err));
     };
 
+    function DeleteBtn(position) {
+    const isLocal = position;
+    if (isLocal.position === 0) {
+        return <Button onClick={deleteProduct}>Delete</Button> ;
+    }
+    else {
+        return null;
+        }
+    }
+
+
 
     return (
 
@@ -24,7 +35,9 @@ const ProductCard = (props) =>  {
             <Card.Meta>Price: {props.price}$</Card.Meta>
             <Card.Description>Descriprion: {props.description}</Card.Description>
         </Card.Content>
-        <Button onClick={deleteProduct} >Delete</Button>
+        
+        <DeleteBtn position={props.position} />
+
     </Card>
     );
 
